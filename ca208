@@ -1,0 +1,10 @@
+% Question 1
+add(X, L, [X|L]).
+
+reverse([], [], []).
+reverse([H|T], L1, L2) :- add(H, L2, [H|L2]), reverse(T, L1, L2).
+reverse(_, L2, L3) :- L2 == L3.
+
+delete(X, [X|B], B) :- !.
+delete(_, B, B) :- !.
+delete(X, [_|A], [_|B]) :- delete(X, A, B), !.
